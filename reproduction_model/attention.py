@@ -168,7 +168,7 @@ class MultiHeadAttention(nn.Module):
         batch_size = v.size(0)
         query = self.Linear_Q(q).view(batch_size, -1, self.n_heads, self.attn_dim)
         key = self.Linear_K(k).view(batch_size, -1, self.n_heads, self.attn_dim)
-        value = self.Linear_V(v)view(batch_size, -1, self.n_heads, self.attn_dim)
+        value = self.Linear_V(v).view(batch_size, -1, self.n_heads, self.attn_dim)
         
         query = query.permute(2, 0, 1, 3).contiguous().view(batch_size * self.n_heads, -1, self.attn_dim)
         key = key.permute(2, 0, 1, 3).contiguous().view(batch_size * self.n_heads, -1, self.attn_dim)

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from reproduction_model.activation import Swish
-from reproduction_model.module import Linear
+from activation import Swish
+from module import Linear
 
 class FeedForwardModule(nn.Module):
     def __init__(self, args, encoder_dim=512, expansion_factor=4, dropout_p=0.1):
